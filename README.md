@@ -37,7 +37,7 @@ alphabetically by last name.
 
 Dependencies can be installed by running `pip install -r requirements.txt`.
 
-The program's dependencies are Python 3+ (tested using Python 3.6.2), `psycopy2`,
+The program's dependencies are Python 3+ (tested using Python 3.6.2), `psycopg2`,
 Flask and a few associated packages (`flask-restless` and `flask_sqlalchemy`),
 `requests`, and `json`.
 
@@ -51,7 +51,7 @@ Please follow your OS-specific instructions for this (in my case, I used the
 [Arch Wiki](https://wiki.archlinux.org/index.php/PostgreSQL)).
 
 It is assumed that your Postgres password is saved on your system as an environment
-variable called POSTGRES_PASSWORD.
+variable called `$POSTGRES_PASSWORD`.
 
 ### Running
 
@@ -59,7 +59,7 @@ Navigate to the root directory and open two terminal windows. In one, run
 `python server.py`. You should see the following output:
 
 ```
-* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 644-360-566
@@ -85,12 +85,13 @@ And in the `client.py` window:
 ### Progress/Completion of Requirements
 
 - [x] Return JSON.
-The id field needs to be added (should it be the primary key?) and the JSON needs
+However, the id field needs to be added (should it be the primary key?) and the JSON needs
 to be formatted as in the example output under `Description` above. The `to_json()`
 method in `server.py` should help with this.
 - [ ] Allow candidates to be filtered with any combination of the expertise and
-location fields. (Allows filtering based on expertise and location, but
-results returned are incomplete and incorrect. For example, as we saw above:
+location fields.
+Currently, the program allows filtering based on expertise and location, but the
+results returned are incomplete and/or incorrect. For example, as we saw above:
 
 ```
 get("technical", "NYC")
